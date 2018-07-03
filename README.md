@@ -11,4 +11,4 @@ python manage.py makemigrations
 python manage.py migrate  
 python manage.py runserver  
 # 个人博客地址
-[Mr Huang的博客]（funtown.pythonanywhere.com）
+地址：[Mr Huang的博客]（http://funtown.pythonanywhere.com）
