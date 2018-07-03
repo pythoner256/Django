@@ -10,5 +10,5 @@ setting.py配置
 python manage.py makemigrations  
 python manage.py migrate  
 python manage.py runserver  
-# 博客地址
-funtown.pythonanywhere.com
+# 个人博客地址
+[Mr Huang的博客]（funtown.pythonanywhere.com）
