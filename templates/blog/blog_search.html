@@ -1,0 +1,51 @@
+{% extends 'blog/base.html' %}
+{% load staticfiles %}
+{% load comment_tags %}
+{% block header %}
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+{% endblock header%}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="panel panel-primary">
+                <div class="panel-heading">博客列表</div>
+                <div class="panel-body">
+                    {# 搜索查询结果显示 #}
+                    {% for search_blog in search_blogs %}
+                        <a href="{% url 'blog_detail' search_blog.pk %}">
+                            <h4>{{ search_blog.title }}</h4>
+                        </a>
+                           <span class="glyphicon glyphicon-tags"></span>
+                        <a href="{% url 'blogs_with_type' search_blog.blog_type.pk %}">
+                            {{ search_blog.blog_type }}
+                        </a>&nbsp;&nbsp;
+                           <span class="glyphicon glyphicon-time"></span>
+                        {{ search_blog.create_time|date:'Y-m-d' }} &nbsp;&nbsp;阅读
+                        <span class="glyphicon glyphicon-bookmark"></span>
+                        （{{ search_blog.get_read_num }}）
+                             评论（{% get_comment_count search_blog %}）
+                            <p>{{ search_blog.content|truncatechars:120|safe }}</p>
+                        {% empty %}
+                        <p>根据【{{ kew_word }}】未查询到相关博客</p>
+                    {% endfor %}
+                    <p>共有{{ number }}篇博客</p>
+                    {# 搜索查询结果显示 #}
+                </div>
+            </div>
+        </div>
+    <div class=" col-md-4">
+            <div class="panel panel-primary">
+                <div class="panel-heading">标签云</div>
+                    <div class="panel-body">
+                        <a href="{% url 'blogs_with_type' 4 %}" class="btn btn-primary">Python</a>
+                        <a href="{% url 'blogs_with_type' 3 %}" class="btn btn-default">Django</a>
+                        <a href="{% url 'blogs_with_type' 2 %}" class="btn btn-danger">随笔</a>
+                        <a href="{% url 'blogs_with_type' 1 %}" class="btn btn-warning">感悟</a>
+                        <a href="" class="btn btn-info">其他</a>
+                    </div>
+             </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

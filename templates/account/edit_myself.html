@@ -1,0 +1,58 @@
+{% extends 'blog/base.html' %}
+{% load staticfiles %}
+{% block title %}个人信息{% endblock title %}
+{% block header %}
+    <link rel="stylesheet" href="{% static 'css/info.css' %}">
+{% endblock header %}
+{% block content %}
+<div class="row text-center">
+    <h2>个人信息</h2>
+    <div class="row">
+        <div class="col-md-6">
+            <form action="." method="post">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-4 text-right"><span>用户名：</span></div>
+                    <div class="col-md-8 text-left">{{ user.username }}</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 text-right"><span>邮箱：</span></div>
+                    <div class="col-md-8 text-left">{{ userform.email }}</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 text-right"><span>工作单位：</span></div>
+                    <div class="col-md-8 text-left">{{ userinfoform.company }}</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 text-right"><span>学校：</span></div>
+                    <div class="col-md-8 text-left">{{ userinfoform.school }}</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 text-right"><span>专业：</span></div>
+                    <div class="col-md-8 text-left">{{ userinfoform.profession }}</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 text-right"><span>地址：</span></div>
+                    <div class="col-md-8 text-left">{{ userinfoform.address }}</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 text-right"><span>关于我：</span></div>
+                    <div class="col-md-8 text-left">{{ userinfoform.about_me }}</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 text-right"><span>电话：</span></div>
+                    <div class="col-md-8 text-left">{{ userprofileform.phone }}</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 text-right"><span>生日：</span></div>
+                    <div class="col-md-8 text-left">{{ userprofileform.birth }}</div>
+                </div>
+                <div class="row">
+                    <input type="submit" class="btn btn-primary btn-lg" value="提交">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+

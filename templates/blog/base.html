@@ -1,0 +1,64 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{% endblock title %}</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap-3.37/css/bootstrap.min.css' %}">
+    <script type="text/javascript" src="{% static 'js/jquery-1.12.4.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'bootstrap-3.37/js/bootstrap.min.js' %}"></script>
+    {% block header %}{% endblock %}
+</head>
+<body>
+<div class="navbar navbar-inverse" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="{% url 'blog_list' %}">个人博客网站</a>
+                <button class="navbar-toggle collapsed"  data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+        </div>
+        <div id="navbar-collapse" class="collapse navbar-collapse" >
+            <ul class="nav navbar-nav">
+                <li><a href="{% url 'blog_list' %}">首页</a></li>
+                <li><a href="{% url 'blog_list' %}"  id="remove-backgound">博客</a></li>
+            </ul>
+            <form class="navbar-form navbar-left" action="{% url 'search' %}" method="get">
+                <div class="form-group">
+                  <input type="text" class="form-control" name="search" placeholder="输入关键字查询博客">
+                </div>
+                <button type="submit" class="btn btn-default">搜索</button>
+            </form>
+            <ul class="nav navbar-nav navbar-right">
+                {% if user.is_authenticated %}
+                <li><a href="">欢迎，{{ user.username }}</a></li>
+                <li><a href="{% url 'account:logout' %}">退出</a></li>
+                <li>
+                    <div class="dropdown" style="margin-top: 0.6em" >
+                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        {{ user.username }}
+                        <span class="caret"></span>
+                        </button>
+                         <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                            <li><a href="{% url 'account:myself' %}">个人信息</a></li>
+                            <li><a href="{% url 'account:password_change' %}">修改密码</a></li>
+                        </ul>
+                    </div>
+                </li>
+                {% else %}
+                    <li class="navbar-right"><a href="{% url 'account:blog_login' %}" >登录</a></li>
+                    <li class="navbar-right"><a href="{% url 'account:blog_register' %}">注册</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</div>
+    {% block content %}{% endblock %}
+    {% block script_extands %}{% endblock %}
+</body>
+</html>

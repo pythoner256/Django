@@ -1,0 +1,11 @@
+{% extends 'blog/base.html' %}
+{% load staticfiles %}
+{% block title %}
+  我的网站|错误
+{% endblock %}
+{% block header %}
+    <link rel="stylesheet" href="{% static 'css/home.css'%}">
+{% endblock header%}
+{% block content %}
+    {{ message }},<a href="{{ redirect_to }}">返回</a>
+{% endblock content%}
