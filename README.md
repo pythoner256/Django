@@ -1,5 +1,9 @@
 # Django搭建博客
 使用Django+Python3.6快速搭建博客
+# 要求
+1. Python3.6  
+2. Django2.0  
+3. django-ckeditor
 # 安装
 pip install -r requirements.txt  
 setting.py配置  
