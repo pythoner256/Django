@@ -1,0 +1,47 @@
+ul.blog-types{
+    list-style-type: none;
+}
+
+ul.blog-info{
+    list-style-type: none;
+    margin-bottom: 1em;
+}
+ul.blog-info li{
+    display: inline-block;
+    margin-right: 1em;
+}
+.blog-content{
+    margin-bottom: 2em;
+    text-indent: 2em;
+}
+
+div.paginator{
+    text-align: center;
+}
+div.comment-area{
+    margin-top: 2em;
+
+}
+h3.comment-area-title{
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 0.4em;
+}
+div.django-ckeditor-widget{
+    width: 100%;
+}
+div.comment{
+    border-bottom: 1px dashed #cccc;
+    padding-bottom: 0.5em;
+    margin-bottom: 0.5em;
+}
+div.reply{
+    margin-left: 2em;
+}
+.btn{
+    margin: 3px 7px;
+}
+.replace_background{
+    background-image: url("images/Lebron James.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% ;
+}

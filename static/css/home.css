@@ -1,0 +1,13 @@
+.home-content {
+    font-size: 200%;
+    text-align: center;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+#container{
+    margin: 0 auto;
+    height: 20em;
+    min-height: 20em;
+    max-height: 30em;
+}
