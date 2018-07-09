@@ -19,4 +19,5 @@ python manage.py runserver
 - 评论以及回复使用django-editor 编辑器
 - 博客支持分页
 - 博客分类和归档
+- 简单的搜索功能
 
