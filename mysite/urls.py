@@ -18,6 +18,7 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from blog.views import blog_list
+import blog
 
 urlpatterns = [
     path('', blog_list, name='blog_list'),
@@ -27,5 +28,8 @@ urlpatterns = [
     path('comment/', include('comment.urls')),
     path('account/', include(('account.urls', 'account'), namespace='account')),
 ]
+
+handler404 = blog.views.page_not_found
+handler500 = blog.views.server_error
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
