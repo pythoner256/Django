@@ -90,3 +90,11 @@ def search(request):  # 搜索
     context['search_blogs'] = search_blogs
     context['number'] = number
     return render(request, 'blog/blog_search.html', context)
+
+
+def page_not_found(request):  # 返回404错误页面
+    return render(request, 'blog/error.html', {'status_code': 404})
+
+
+def server_error(request):
+    return render(request, 'blog/error.html', {'status_code': 500})
