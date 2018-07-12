@@ -1,11 +1,15 @@
 {% extends 'blog/base.html' %}
 {% load staticfiles %}
 {% block title %}
-  我的网站|错误
+    {% if status_code == 404 %}
+     404 NotFound
+    {% elif status_code == 500 %}
+    500 Error
+    {% endif %}
 {% endblock %}
 {% block header %}
     <link rel="stylesheet" href="{% static 'css/home.css'%}">
 {% endblock header%}
 {% block content %}
-    {{ message }},<a href="{{ redirect_to }}">返回</a>
+    <div class="error">您访问的页面溜走了。。。。</div>
 {% endblock content%}
